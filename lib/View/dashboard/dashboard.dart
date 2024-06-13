@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -21,6 +22,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
             DashboardCard(title: 'Card 2', icon: Icons.show_chart),
             DashboardCard(title: 'Card 3', icon: Icons.bar_chart),
             DashboardCard(title: 'Card 4', icon: Icons.timeline),
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red, foregroundColor: Colors.white),
+                onPressed: () async {
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, 'phone', (route) => false);
+                },
+                child: Text(
+                  'Log Out',
+                ),
+              ),
+            )
           ],
         ),
       ),

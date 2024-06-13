@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myvoiceapp/res/Assets/image_assets.dart';
 import 'package:myvoiceapp/View/authentication/phone.dart';
@@ -42,13 +43,20 @@ class _SplashScreenState extends State<SplashScreen> {
 //This basically redirect your screen to the other screen after 5 seconds
 //
     Future.delayed(Duration(seconds: 5), () {
+      FirebaseAuth.instance.authStateChanges().listen((User? user) {
+        if (user == null) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Phone(
+                    widget.otp)), // replace with your actual next page widget
+          );
+        } else {
+          Navigator.pushNamedAndRemoveUntil(
+              context, 'dashboard', (route) => false);
+        }
+      });
       // Navigate to the next page after 5 seconds
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) =>
-                Phone(widget.otp)), // replace with your actual next page widget
-      );
     });
   }
 
