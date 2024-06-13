@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "121286195241",
+    "project_id": "vsphere-8a9cd",
+    "storage_bucket": "vsphere-8a9cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121286195241:android:38b911505861f5d5b6c438",
+        "android_client_info": {
+          "package_name": "com.example.myvoiceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121286195241-s7l4p4q40loq076jdq94hld9a429srsj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myvoiceapp",
+            "certificate_hash": "744f5d8aa70b0570975c31cfd484a169831d280e"
+          }
+        },
+        {
+          "client_id": "121286195241-94j8rtma1sjtn2tunif0h9hsq833sqvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDseYOETNyq4wBPproqfvFPL3fZRaQ87Ec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121286195241-94j8rtma1sjtn2tunif0h9hsq833sqvm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "121286195241-ducud7gka60hjcuu5sgivejfagmbcfik.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myvoiceapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

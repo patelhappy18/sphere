@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "121286195241",
+    "project_id": "vsphere-8a9cd",
+    "storage_bucket": "vsphere-8a9cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121286195241:android:38b911505861f5d5b6c438",
+        "android_client_info": {
+          "package_name": "com.example.myvoiceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDseYOETNyq4wBPproqfvFPL3fZRaQ87Ec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
