@@ -1,82 +1,118 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class DashboardScreen extends StatefulWidget {
-  @override
-  _DashboardScreenState createState() => _DashboardScreenState();
-}
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
 
-class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        backgroundColor: Colors.purple[100],
+        elevation: 0,
+        title: TextField(
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(10),
+            fillColor: Colors.white,
+            filled: true,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide.none,
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              Navigator.pushNamed(context, '/notifications');
+            },
+          ),
+        ],
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          ),
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GridView.count(
-          crossAxisCount: 2,
-          children: [
-            DashboardCard(title: 'Card 1', icon: Icons.pie_chart),
-            DashboardCard(title: 'Card 2', icon: Icons.show_chart),
-            DashboardCard(title: 'Card 3', icon: Icons.bar_chart),
-            DashboardCard(title: 'Card 4', icon: Icons.timeline),
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red, foregroundColor: Colors.white),
-                onPressed: () async {
-                  await FirebaseAuth.instance.signOut();
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, 'phone', (route) => false);
-                },
-                child: Text(
-                  'Log Out',
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.purple[100],
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
                 ),
               ),
-            )
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.contacts),
+              title: Text('Contacts'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Log Out'),
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.pushNamedAndRemoveUntil(context, '/phone', (route) => false);
+              },
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class DashboardCard extends StatelessWidget {
-  final String title;
-  final IconData icon;
-
-  DashboardCard({required this.title, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      margin: EdgeInsets.all(8),
-      child: InkWell(
-        onTap: () {
-          // Handle card tap
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                size: 40,
-                color: Theme.of(context).primaryColor,
-              ),
-              SizedBox(height: 16),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ),
-            ],
-          ),
+      body: Container(
+        color: Colors.white,
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.purple[100],
+        shape: CircularNotchedRectangle(),
+        notchMargin: 8.0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.chat),
+              onPressed: () {
+                Navigator.pushNamed(context, '/message');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+            ),
+          ],
         ),
       ),
     );
