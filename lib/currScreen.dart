@@ -65,7 +65,7 @@ class _CurrentScreenState extends State<CurrentScreen> {
         'initialscreen': (context) => SplashScreen(otp),
         'phone': (context) => Phone(otp),
         'otp': (context) => OTP(verificationId: ''),
-        'dashboard': (context) => DashboardScreen(),
+        'dashboard': (context) => Dashboard(),
         'notification': (context) => NotificationsPage(),
         'profile': (context) => UserProfileScreen(),
         'messages': (context) => MessagingScreen(),
