@@ -7,22 +7,29 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple[100],
+        backgroundColor: Colors.purple,
         elevation: 0,
-        title: TextField(
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(10),
-            fillColor: Colors.white,
-            filled: true,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide.none,
+        title: Center(
+          child: Container(
+            width: 180,height: 35, // Adjust the width as needed
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(10),
+                fillColor: Colors.white,
+                filled: true,
+                prefixIcon: Icon(Icons.search, color: Colors.grey),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25),
+                  borderSide: BorderSide.none,
+                ),
+              ),
             ),
           ),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.notifications, color: Colors.white,),
+
             onPressed: () {
               Navigator.pushNamed(context, '/notifications');
             },
@@ -30,7 +37,7 @@ class Dashboard extends StatelessWidget {
         ],
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.menu,color: Colors.white),
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
@@ -43,7 +50,7 @@ class Dashboard extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.purple[100],
+                color: Colors.purple,
               ),
               child: Text(
                 'Menu',
@@ -99,7 +106,7 @@ class Dashboard extends StatelessWidget {
                 shape: CircleBorder(),
                 padding: EdgeInsets.all(16),
                 foregroundColor: Colors.white, // Icon color
-                backgroundColor: Colors.purple[100], // Button background color
+                backgroundColor: Colors.purple, // Button background color
               ),
             ),
             SizedBox(height: 10), // Space between the button and the text
@@ -114,24 +121,24 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.purple[100],
+        color: Colors.purple,
         shape: CircularNotchedRectangle(),
         notchMargin: 8.0,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.chat),
+              icon: Icon(Icons.chat, color: Colors.white),
               onPressed: () {
                 Navigator.pushNamed(context, '/message');
               },
             ),
             IconButton(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home, color: Colors.white),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person, color: Colors.white),
               onPressed: () {
                 Navigator.pushNamed(context, '/profile');
               },
