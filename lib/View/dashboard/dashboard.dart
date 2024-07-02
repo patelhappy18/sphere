@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+class Dashboard extends StatelessWidget {
+  const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +24,7 @@ class DashboardScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.notifications),
             onPressed: () {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, 'notification', (route) => false);
+              Navigator.pushNamed(context, '/notifications');
             },
           ),
         ],
@@ -80,16 +78,40 @@ class DashboardScreen extends StatelessWidget {
               leading: Icon(Icons.logout),
               title: Text('Log Out'),
               onTap: () async {
-                await FirebaseAuth.instance.signOut();
-                Navigator.pushNamedAndRemoveUntil(
-                    context, 'phone', (route) => false);
+                //await FirebaseAuth.instance.signOut();
+                Navigator.pushNamedAndRemoveUntil(context, '/phone', (route) => false);
               },
             ),
           ],
         ),
       ),
-      body: Container(
-        color: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                // Define the action for the button here
+                Navigator.pushNamed(context, '/create_channel');
+              },
+              child: Icon(Icons.add),
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(16),
+                foregroundColor: Colors.white, // Icon color
+                backgroundColor: Colors.purple[100], // Button background color
+              ),
+            ),
+            SizedBox(height: 10), // Space between the button and the text
+            Text(
+              'Create Channel',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         color: Colors.purple[100],
@@ -101,8 +123,7 @@ class DashboardScreen extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.chat),
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, 'messages', (route) => false);
+                Navigator.pushNamed(context, '/message');
               },
             ),
             IconButton(
@@ -112,8 +133,7 @@ class DashboardScreen extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.person),
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, 'profile', (route) => false);
+                Navigator.pushNamed(context, '/profile');
               },
             ),
           ],
