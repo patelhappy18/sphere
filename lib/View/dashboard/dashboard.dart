@@ -25,7 +25,8 @@ class DashboardScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.notifications),
             onPressed: () {
-              Navigator.pushNamed(context, '/notifications');
+              Navigator.pushNamedAndRemoveUntil(
+                  context, 'notification', (route) => false);
             },
           ),
         ],
@@ -80,7 +81,8 @@ class DashboardScreen extends StatelessWidget {
               title: Text('Log Out'),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
-                Navigator.pushNamedAndRemoveUntil(context, '/phone', (route) => false);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, 'phone', (route) => false);
               },
             ),
           ],
@@ -99,7 +101,8 @@ class DashboardScreen extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.chat),
               onPressed: () {
-                Navigator.pushNamed(context, '/message');
+                Navigator.pushNamedAndRemoveUntil(
+                    context, 'messages', (route) => false);
               },
             ),
             IconButton(
@@ -109,7 +112,8 @@ class DashboardScreen extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.person),
               onPressed: () {
-                Navigator.pushNamed(context, '/profile');
+                Navigator.pushNamedAndRemoveUntil(
+                    context, 'profile', (route) => false);
               },
             ),
           ],

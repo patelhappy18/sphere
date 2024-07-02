@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:myvoiceapp/View/authentication/otp.dart';
 import 'package:myvoiceapp/View/authentication/phone.dart';
 import 'package:myvoiceapp/View/dashboard/dashboard.dart';
+import 'package:myvoiceapp/View/dashboard/message.dart';
+import 'package:myvoiceapp/View/dashboard/notification.dart';
+import 'package:myvoiceapp/View/dashboard/profile.dart';
 import 'package:myvoiceapp/View/splash/splash_screen.dart';
 
 class CurrentScreen extends StatefulWidget {
@@ -62,7 +65,10 @@ class _CurrentScreenState extends State<CurrentScreen> {
         'initialscreen': (context) => SplashScreen(otp),
         'phone': (context) => Phone(otp),
         'otp': (context) => OTP(verificationId: ''),
-        'dashboard': (context) => DashboardScreen()
+        'dashboard': (context) => DashboardScreen(),
+        'notification': (context) => NotificationsPage(),
+        'profile': (context) => UserProfileScreen(),
+        'messages': (context) => MessagingScreen(),
       },
     );
   }
