@@ -11,6 +11,12 @@ class MessagingScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.more_vert),
@@ -77,4 +83,10 @@ class Message {
     required this.time,
     required this.avatarColor,
   });
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: MessagingScreen(),
+  ));
 }
