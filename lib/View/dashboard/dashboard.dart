@@ -11,7 +11,7 @@ class Dashboard extends StatelessWidget {
         elevation: 0,
         title: Center(
           child: Container(
-            width: 180,height: 35, // Adjust the width as needed
+            width: 180, height: 35, // Adjust the width as needed
             child: TextField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(10),
@@ -28,16 +28,18 @@ class Dashboard extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white,),
-
+            icon: Icon(
+              Icons.notifications,
+              color: Colors.white,
+            ),
             onPressed: () {
-              Navigator.pushNamed(context, '/notifications');
+              Navigator.pushNamed(context, 'notification');
             },
           ),
         ],
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Icon(Icons.menu,color: Colors.white),
+            icon: Icon(Icons.menu, color: Colors.white),
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
@@ -86,7 +88,8 @@ class Dashboard extends StatelessWidget {
               title: Text('Log Out'),
               onTap: () async {
                 //await FirebaseAuth.instance.signOut();
-                Navigator.pushNamedAndRemoveUntil(context, '/phone', (route) => false);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, 'phone', (route) => false);
               },
             ),
           ],
@@ -99,7 +102,7 @@ class Dashboard extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Define the action for the button here
-                Navigator.pushNamed(context, '/create_channel');
+                Navigator.pushNamed(context, 'create_channel');
               },
               child: Icon(Icons.add),
               style: ElevatedButton.styleFrom(
@@ -130,7 +133,7 @@ class Dashboard extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.chat, color: Colors.white),
               onPressed: () {
-                Navigator.pushNamed(context, '/message');
+                Navigator.pushNamed(context, 'messages');
               },
             ),
             IconButton(
@@ -140,7 +143,7 @@ class Dashboard extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.person, color: Colors.white),
               onPressed: () {
-                Navigator.pushNamed(context, '/profile');
+                Navigator.pushNamed(context, 'profile');
               },
             ),
           ],
