@@ -33,23 +33,25 @@ class _FullNameScreenState extends State<FullNameScreen> {
             Navigator.pop(context);
           },
         ),
-        backgroundColor: Colors.purple[100],
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: Container(
-        color: Colors.purple[100],
-        padding: EdgeInsets.all(16.0),
+        color: Colors.white,
+        padding: EdgeInsets.all(20.0),
         child: Form(
           key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Image.asset('assets/fullname.png', height: 220), // Example image
+              SizedBox(height: 20),
               Text(
-                "What's your full name?",
+                "Let's set up your profile",
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 15),
               Row(
                 children: <Widget>[
                   Expanded(
@@ -95,12 +97,12 @@ class _FullNameScreenState extends State<FullNameScreen> {
               ElevatedButton(
                 onPressed: _submit,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  backgroundColor: Colors.purple,
+                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                 ),
                 child: Text(
                   'Next',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(fontSize: 18,color: Colors.white),
                 ),
               ),
             ],
