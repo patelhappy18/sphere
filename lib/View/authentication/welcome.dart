@@ -4,7 +4,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFD8C9E1), // Light purple background
+      backgroundColor: Colors.white, // White background
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -13,29 +13,31 @@ class WelcomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Text(
-                '🎉Welcome to VoiceSphere\nLet\'s set up your profile?',
+                '🎉Welcome to VoiceSphere\n Let\'s set up your profile?',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 22.0,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 40.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/fullname');
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  backgroundColor: Colors.grey,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
+              SizedBox(height: 80.0),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/fullname');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                    backgroundColor: Colors.purple, // Purple button
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
                   ),
-                ),
-                child: Text(
-                  'Setup your profile',
-                  style: TextStyle(fontSize: 16.0, color: Colors.white),
+                  child: Text(
+                    'Setup your profile',
+                    style: TextStyle(fontSize: 16.0, color: Colors.white),
+                  ),
                 ),
               ),
             ],
