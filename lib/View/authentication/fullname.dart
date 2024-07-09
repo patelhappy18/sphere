@@ -19,7 +19,7 @@ class _FullNameScreenState extends State<FullNameScreen> {
 
   void _submit() {
     if (_formKey.currentState?.validate() ?? false) {
-      Navigator.pushNamed(context, '/dashboard');
+      Navigator.pushNamed(context, 'dashboard');
     }
   }
 
@@ -44,7 +44,8 @@ class _FullNameScreenState extends State<FullNameScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/fullname.png', height: 220), // Example image
+              Image.asset('assets/images/fullname.png',
+                  height: 220), // Example image
               SizedBox(height: 20),
               Text(
                 "Let's set up your profile",
@@ -102,7 +103,7 @@ class _FullNameScreenState extends State<FullNameScreen> {
                 ),
                 child: Text(
                   'Next',
-                  style: TextStyle(fontSize: 18,color: Colors.white),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
             ],

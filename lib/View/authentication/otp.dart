@@ -120,7 +120,7 @@ class _OTPState extends State<OTP> {
                       // Sign the user in (or link) with the credential
                       await auth.signInWithCredential(credential);
                       Navigator.pushNamedAndRemoveUntil(
-                          context, 'dashboard', (route) => false);
+                          context, 'welcomeScreen', (route) => false);
                     } catch (e) {
                       print("Wrong OTP");
                     }

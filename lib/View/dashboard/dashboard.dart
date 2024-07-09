@@ -102,7 +102,7 @@ class Dashboard extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Define the action for the button here
-                Navigator.pushNamed(context, 'create_channel');
+                Navigator.pushNamed(context, 'callLandingPage');
               },
               child: Icon(Icons.add),
               style: ElevatedButton.styleFrom(

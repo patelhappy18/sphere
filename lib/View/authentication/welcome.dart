@@ -25,7 +25,8 @@ class WelcomeScreen extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/fullname');
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, 'fullnameScreen', (route) => false);
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myvoiceapp/View/authentication/fullname.dart';
 import 'package:myvoiceapp/View/authentication/otp.dart';
 import 'package:myvoiceapp/View/authentication/phone.dart';
+import 'package:myvoiceapp/View/authentication/welcome.dart';
+import 'package:myvoiceapp/View/calling/callPage.dart';
+import 'package:myvoiceapp/View/calling/landingPage.dart';
 import 'package:myvoiceapp/View/dashboard/dashboard.dart';
 import 'package:myvoiceapp/View/dashboard/message.dart';
 import 'package:myvoiceapp/View/dashboard/notification.dart';
@@ -48,6 +52,10 @@ class _CurrentScreenState extends State<CurrentScreen> {
       screen = OTP(
         verificationId: '',
       );
+    } else if (activeScreen == 'fullname') {
+      screen = FullNameScreen();
+    } else if (activeScreen == 'welcome') {
+      screen = WelcomeScreen();
     } else {
       screen = SplashScreen(otp); // Fallback to SplashScreen
     }
@@ -69,6 +77,9 @@ class _CurrentScreenState extends State<CurrentScreen> {
         'notification': (context) => NotificationsPage(),
         'profile': (context) => UserProfileScreen(),
         'messages': (context) => MessagingScreen(),
+        'welcomeScreen': (context) => WelcomeScreen(),
+        'fullnameScreen': (context) => FullNameScreen(),
+        'callLandingPage': (context) => LandingPage(),
       },
     );
   }
