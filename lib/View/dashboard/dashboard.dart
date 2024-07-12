@@ -11,7 +11,8 @@ class Dashboard extends StatelessWidget {
         elevation: 0,
         title: Center(
           child: Container(
-            width: 180, height: 35, // Adjust the width as needed
+            width: 180,
+            height: 35, // Adjust the width as needed
             child: TextField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(10),
@@ -28,12 +29,9 @@ class Dashboard extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.white,
-            ),
+            icon: Icon(Icons.notifications, color: Colors.white),
             onPressed: () {
-              Navigator.pushNamed(context, 'notification');
+              Navigator.pushNamed(context, '/notifications');
             },
           ),
         ],
@@ -55,7 +53,7 @@ class Dashboard extends StatelessWidget {
                 color: Colors.purple,
               ),
               child: Text(
-                'Menu',
+                'git',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -88,39 +86,105 @@ class Dashboard extends StatelessWidget {
               title: Text('Log Out'),
               onTap: () async {
                 //await FirebaseAuth.instance.signOut();
-                Navigator.pushNamedAndRemoveUntil(
-                    context, 'phone', (route) => false);
+                Navigator.pushNamedAndRemoveUntil(context, '/phone', (route) => false);
               },
             ),
           ],
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                // Define the action for the button here
-                Navigator.pushNamed(context, 'callLandingPage');
-              },
-              child: Icon(Icons.add),
-              style: ElevatedButton.styleFrom(
-                shape: CircleBorder(),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 40), // Add this line to create space
+              Container(
+                width: 300,
+                height: 250,
                 padding: EdgeInsets.all(16),
-                foregroundColor: Colors.white, // Icon color
-                backgroundColor: Colors.purple, // Button background color
+                margin: EdgeInsets.only(bottom: 25), // Space between the boxes
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/create_channel');
+                      },
+                      child: Icon(Icons.add),
+                      style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
+                        padding: EdgeInsets.all(16),
+                        foregroundColor: Colors.white, // Icon color
+                        backgroundColor: Colors.purple, // Button background color
+                      ),
+                    ),
+                    SizedBox(height: 10), // Space between the button and the text
+                    Text(
+                      'Create Channel',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 10), // Space between the button and the text
-            Text(
-              'Create Channel',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
+              Container(
+                width: 300,
+                height: 250,
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/join_channel');
+                      },
+                      child: Icon(Icons.group_add),
+                      style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
+                        padding: EdgeInsets.all(16),
+                        foregroundColor: Colors.white, // Icon color
+                        backgroundColor: Colors.purple, // Button background color
+                      ),
+                    ),
+                    SizedBox(height: 10), // Space between the button and the text
+                    Text(
+                      'Join Channel',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -133,7 +197,7 @@ class Dashboard extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.chat, color: Colors.white),
               onPressed: () {
-                Navigator.pushNamed(context, 'messages');
+                Navigator.pushNamed(context, '/message');
               },
             ),
             IconButton(
@@ -143,7 +207,7 @@ class Dashboard extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.person, color: Colors.white),
               onPressed: () {
-                Navigator.pushNamed(context, 'profile');
+                Navigator.pushNamed(context, '/profile');
               },
             ),
           ],
