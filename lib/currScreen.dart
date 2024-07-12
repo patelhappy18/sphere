@@ -10,6 +10,8 @@ import 'package:myvoiceapp/View/dashboard/message.dart';
 import 'package:myvoiceapp/View/dashboard/notification.dart';
 import 'package:myvoiceapp/View/dashboard/profile.dart';
 import 'package:myvoiceapp/View/splash/splash_screen.dart';
+import 'package:myvoiceapp/View/dashboard/createchannel.dart';
+import 'package:myvoiceapp/View/dashboard/joinchannel.dart';
 
 class CurrentScreen extends StatefulWidget {
   const CurrentScreen({super.key});
@@ -80,6 +82,8 @@ class _CurrentScreenState extends State<CurrentScreen> {
         'welcomeScreen': (context) => WelcomeScreen(),
         'fullnameScreen': (context) => FullNameScreen(),
         'callLandingPage': (context) => LandingPage(),
+        'createchannel':(context) => CreateChannel(),
+        //'joinchannel':(context)=> JoinChannel(),
       },
     );
   }
