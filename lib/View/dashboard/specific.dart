@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CreateChannel extends StatelessWidget {
-  const CreateChannel({Key? key}) : super(key: key);
+class SpecificChannelScreen extends StatelessWidget {
+  const SpecificChannelScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -92,70 +92,95 @@ class CreateChannel extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Channel Name:',
-                  contentPadding: EdgeInsets.zero, // Remove default padding
-                ),
-                textAlign: TextAlign.center, // Center align text
-                maxLines: 1,
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              child: Text(
+                'Kids Channel',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Description:',
-                  contentPadding: EdgeInsets.zero,
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 1,
-              ),
-              SizedBox(height: 16),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Host Name:',
-                  contentPadding: EdgeInsets.zero,
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 1,
-              ),
-              SizedBox(height: 16),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Sub Topics:',
-                  contentPadding: EdgeInsets.zero,
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 1,
-              ),
-              SizedBox(height: 32),
-              ElevatedButton(
-                onPressed: () {
-                  // Implement channel creation logic here
-                },
-                child: Text(
-                  'Create Channel',
-                  style: TextStyle(fontSize: 16, color: Colors.white), // Decrease font size
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
+            ),
+            Text(
+              'Welcome to the Kids channel! This channel is dedicated to fun and educational content for kids of all ages.',
+              style: TextStyle(fontSize: 15),
+            ),
+            GridView.count(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              children: List.generate(10, (index) {
+                String channelName;
+                switch (index) {
+                  case 0:
+                    channelName = 'Kids Videos';
+                    break;
+                  case 1:
+                    channelName = 'Kids Games';
+                    break;
+                  case 2:
+                    channelName = 'Learning Activities';
+                    break;
+                  case 3:
+                    channelName = 'Story Time';
+                    break;
+                  case 4:
+                    channelName = 'Art and Crafts';
+                    break;
+                  case 5:
+                    channelName = 'Educational Shows';
+                    break;
+                  case 6:
+                    channelName = 'Children\'s Songs';
+                    break;
+                  case 7:
+                    channelName = 'Science Experiments';
+                    break;
+                  case 8:
+                    channelName = 'Math Challenges';
+                    break;
+                  case 9:
+                    channelName = 'Animal Adventures';
+                    break;
+                  default:
+                    channelName = 'All';
+                }
+
+                return InkWell(
+                  onTap: () {
+                    // Handle button tap
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        channelName,
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ],
-          ),
+                );
+              }),
+            ),
+          ],
         ),
       ),
-
-
       bottomNavigationBar: BottomAppBar(
         color: Colors.purple,
         shape: CircularNotchedRectangle(),
