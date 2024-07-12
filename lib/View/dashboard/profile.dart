@@ -3,6 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+void main() {
+  runApp(MaterialApp(
+    home: UserProfileScreen(),
+  ));
+}
+
 class UserProfileScreen extends StatefulWidget {
   @override
   _UserProfileScreenState createState() => _UserProfileScreenState();
@@ -36,7 +42,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -46,13 +52,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.purple, Colors.white],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
+        color: Colors.white, // Set the background color to white
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -88,14 +88,44 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 );
               },
-              child: CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.white,
-                backgroundImage:
-                _profileImage != null ? FileImage(_profileImage!) : null,
-                child: _profileImage == null
-                    ? Icon(Icons.person, size: 50, color: Colors.purple)
-                    : null,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.black, // Black border color
+                        width: 2.0, // Border width
+                      ),
+                    ),
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.white,
+                      backgroundImage: _profileImage != null
+                          ? FileImage(_profileImage!)
+                          : null,
+                      child: _profileImage == null
+                          ? Icon(Icons.person, size: 50, color: Colors.purple)
+                          : null,
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      padding: EdgeInsets.all(5),
+                      child: Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 20),
@@ -146,12 +176,4 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       ),
     );
   }
-}
-
-
-
-void main() {
-  runApp(MaterialApp(
-    home: UserProfileScreen(),
-  ));
 }
