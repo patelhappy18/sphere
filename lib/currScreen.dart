@@ -82,8 +82,8 @@ class _CurrentScreenState extends State<CurrentScreen> {
         'welcomeScreen': (context) => WelcomeScreen(),
         'fullnameScreen': (context) => FullNameScreen(),
         'callLandingPage': (context) => LandingPage(),
-        'createchannel':(context) => CreateChannel(),
-        //'joinchannel':(context)=> JoinChannel(),
+        'createchannel': (context) => CreateChannel(),
+        'joinchannel': (context) => JoinChannelScreen(),
       },
     );
   }
