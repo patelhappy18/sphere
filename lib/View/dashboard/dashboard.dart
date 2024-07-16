@@ -92,6 +92,7 @@ class Dashboard extends StatelessWidget {
           ],
         ),
       ),
+      backgroundColor: Colors.white, // Set the Scaffold background to white
       body: SingleChildScrollView(
         child: Center(
           child: Column(

@@ -20,7 +20,7 @@ class CreateChannel extends StatelessWidget {
                 filled: true,
                 prefixIcon: Icon(Icons.search, color: Colors.grey),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(25),
                   borderSide: BorderSide.none,
                 ),
               ),
@@ -92,6 +92,7 @@ class CreateChannel extends StatelessWidget {
           ],
         ),
       ),
+      backgroundColor: Colors.white, // Set the Scaffold background to white
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(25.0),
@@ -154,8 +155,6 @@ class CreateChannel extends StatelessWidget {
           ),
         ),
       ),
-
-
       bottomNavigationBar: BottomAppBar(
         color: Colors.purple,
         shape: CircularNotchedRectangle(),

@@ -92,6 +92,7 @@ class SpecificChannelScreen extends StatelessWidget {
           ],
         ),
       ),
+      backgroundColor: Colors.white, // Set the Scaffold background to white
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Column(
