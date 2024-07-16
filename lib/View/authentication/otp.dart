@@ -105,7 +105,7 @@ class _OTPState extends State<OTP> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
+                    backgroundColor: Colors.indigo,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -137,7 +137,7 @@ class _OTPState extends State<OTP> {
                     onPressed: () {},
                     child: Text(
                       'Edit your phone number?',
-                      style: TextStyle(color: Colors.purple, fontSize: 14),
+                      style: TextStyle(color: Colors.indigo, fontSize: 14),
                       textAlign: TextAlign.start,
                     ),
                   ),

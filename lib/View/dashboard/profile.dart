@@ -106,7 +106,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ? FileImage(_profileImage!)
                           : null,
                       child: _profileImage == null
-                          ? Icon(Icons.person, size: 50, color: Colors.purple)
+                          ? Icon(Icons.person, size: 50, color: Colors.indigo)
                           : null,
                     ),
                   ),
@@ -161,7 +161,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(vertical: 16.0),
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.indigo,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),

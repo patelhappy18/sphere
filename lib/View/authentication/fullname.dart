@@ -99,7 +99,7 @@ class _FullNameScreenState extends State<FullNameScreen> {
                 ElevatedButton(
                   onPressed: _submit,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
+                    backgroundColor: Colors.indigo,
                     padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                   ),
                   child: Text(
