@@ -9,6 +9,7 @@ import 'package:myvoiceapp/View/dashboard/dashboard.dart';
 import 'package:myvoiceapp/View/dashboard/message.dart';
 import 'package:myvoiceapp/View/dashboard/notification.dart';
 import 'package:myvoiceapp/View/dashboard/profile.dart';
+import 'package:myvoiceapp/View/dashboard/setting.dart';
 import 'package:myvoiceapp/View/dashboard/specific.dart';
 import 'package:myvoiceapp/View/splash/splash_screen.dart';
 import 'package:myvoiceapp/View/dashboard/createchannel.dart';
@@ -86,6 +87,7 @@ class _CurrentScreenState extends State<CurrentScreen> {
         'createchannel': (context) => CreateChannel(),
         'joinchannel': (context) => JoinChannelScreen(),
         'specific':(context) => SpecificChannelScreen(),
+        'setting':(context) => SettingsPage(),
       },
     );
   }

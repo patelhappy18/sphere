@@ -33,13 +33,13 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          ListTile(
-            leading: Icon(Icons.contacts),
-            title: Text('Contacts'),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.contacts),
+          //   title: Text('Contacts'),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //   },
+          // ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Log Out'),
