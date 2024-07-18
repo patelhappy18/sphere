@@ -29,17 +29,19 @@ class CustomBottomNavigationBar extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.chat, color: Colors.white),
               onPressed: () {
-                Navigator.pushNamed(context, '/message');
+                Navigator.pushNamed(context, 'messages');
               },
             ),
             IconButton(
               icon: Icon(Icons.home, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, 'dashboard');
+              },
             ),
             IconButton(
               icon: Icon(Icons.person, color: Colors.white),
               onPressed: () {
-                Navigator.pushNamed(context, '/profile');
+                Navigator.pushNamed(context, 'profile');
               },
             ),
           ],

@@ -18,7 +18,8 @@ class Dashboard extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.jpg'), // Path to your background image
+                image: AssetImage(
+                    'assets/images/background.jpg'), // Path to your background image
                 fit: BoxFit.cover,
               ),
             ),
@@ -36,16 +37,19 @@ class Dashboard extends StatelessWidget {
                           width: 300,
                           height: 250,
                           padding: EdgeInsets.all(16),
-                          margin: EdgeInsets.only(bottom: 25), // Space between the boxes
+                          margin: EdgeInsets.only(
+                              bottom: 25), // Space between the boxes
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9), // Semi-transparent background
+                            color: Colors.white.withOpacity(
+                                0.9), // Semi-transparent background
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
                                 spreadRadius: 2,
                                 blurRadius: 5,
-                                offset: Offset(0, 3), // changes position of shadow
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
                               ),
                             ],
                           ),
@@ -54,17 +58,20 @@ class Dashboard extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/create_channel');
+                                  Navigator.pushNamed(context, 'createchannel');
                                 },
                                 child: Icon(Icons.add),
                                 style: ElevatedButton.styleFrom(
                                   shape: CircleBorder(),
                                   padding: EdgeInsets.all(16),
                                   foregroundColor: Colors.white, // Icon color
-                                  backgroundColor: Colors.indigo, // Button background color
+                                  backgroundColor:
+                                      Colors.indigo, // Button background color
                                 ),
                               ),
-                              SizedBox(height: 10), // Space between the button and the text
+                              SizedBox(
+                                  height:
+                                      10), // Space between the button and the text
                               Text(
                                 'Create Channel',
                                 style: TextStyle(
@@ -80,14 +87,16 @@ class Dashboard extends StatelessWidget {
                           height: 250,
                           padding: EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9), // Semi-transparent background
+                            color: Colors.white.withOpacity(
+                                0.9), // Semi-transparent background
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
                                 spreadRadius: 2,
                                 blurRadius: 5,
-                                offset: Offset(0, 3), // changes position of shadow
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
                               ),
                             ],
                           ),
@@ -96,17 +105,20 @@ class Dashboard extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/join_channel');
+                                  Navigator.pushNamed(context, 'joinchannel');
                                 },
                                 child: Icon(Icons.group_add),
                                 style: ElevatedButton.styleFrom(
                                   shape: CircleBorder(),
                                   padding: EdgeInsets.all(16),
                                   foregroundColor: Colors.white, // Icon color
-                                  backgroundColor: Colors.indigo, // Button background color
+                                  backgroundColor:
+                                      Colors.indigo, // Button background color
                                 ),
                               ),
-                              SizedBox(height: 10), // Space between the button and the text
+                              SizedBox(
+                                  height:
+                                      10), // Space between the button and the text
                               Text(
                                 'Join Channel',
                                 style: TextStyle(

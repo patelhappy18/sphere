@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:myvoiceapp/View/authentication/fullname.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  final String phoneNumber; // Add this line
+  WelcomeScreen({Key? key, required this.phoneNumber})
+      : super(key: key); // Constructor to receive phoneNumber
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +30,15 @@ class WelcomeScreen extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, 'fullnameScreen', (route) => false);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FullNameScreen(
+                          phoneNumber:
+                              phoneNumber, // Pass phoneNumber to FullNameScreen
+                        ),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),

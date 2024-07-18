@@ -1,6 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FullNameScreen extends StatefulWidget {
+  final String phoneNumber; // Add this line
+
+  const FullNameScreen({Key? key, required this.phoneNumber}) : super(key: key);
+
   @override
   _FullNameScreenState createState() => _FullNameScreenState();
 }
@@ -17,9 +23,26 @@ class _FullNameScreenState extends State<FullNameScreen> {
     super.dispose();
   }
 
-  void _submit() {
+  Future<void> _submit() async {
     if (_formKey.currentState?.validate() ?? false) {
-      Navigator.pushNamed(context, '/dashboard');
+      // Get the current user
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        String userId = user.uid;
+        String phoneNumber = user.phoneNumber ?? 'Unknown';
+
+        // Save the user data to Firestore
+        await FirebaseFirestore.instance.collection('users').doc(userId).set({
+          'firstName': _firstNameController.text,
+          'lastName': _lastNameController.text,
+          'phoneNumber': phoneNumber,
+        });
+
+        Navigator.pushNamed(context, 'dashboard');
+      } else {
+        print('No user is currently logged in.');
+      }
     }
   }
 
@@ -31,8 +54,7 @@ class _FullNameScreenState extends State<FullNameScreen> {
             icon: Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pop(context);
-            }
-        ),
+            }),
         backgroundColor: Colors.white,
         elevation: 0,
       ),

@@ -55,11 +55,16 @@ class _CurrentScreenState extends State<CurrentScreen> {
     } else if (activeScreen == 'otp-screen') {
       screen = OTP(
         verificationId: '',
+        phoneNumber: '',
       );
     } else if (activeScreen == 'fullname') {
-      screen = FullNameScreen();
+      screen = FullNameScreen(
+        phoneNumber: '',
+      );
     } else if (activeScreen == 'welcome') {
-      screen = WelcomeScreen();
+      screen = WelcomeScreen(
+        phoneNumber: '',
+      );
     } else {
       screen = SplashScreen(otp); // Fallback to SplashScreen
     }
@@ -76,18 +81,25 @@ class _CurrentScreenState extends State<CurrentScreen> {
       routes: {
         'initialscreen': (context) => SplashScreen(otp),
         'phone': (context) => Phone(otp),
-        'otp': (context) => OTP(verificationId: ''),
+        'otp': (context) => OTP(
+              verificationId: '',
+              phoneNumber: '',
+            ),
         'dashboard': (context) => Dashboard(),
         'notification': (context) => NotificationsPage(),
         'profile': (context) => UserProfileScreen(),
         'messages': (context) => MessagingScreen(),
-        'welcomeScreen': (context) => WelcomeScreen(),
-        'fullnameScreen': (context) => FullNameScreen(),
+        'welcomeScreen': (context) => WelcomeScreen(
+              phoneNumber: '',
+            ),
+        'fullnameScreen': (context) => FullNameScreen(
+              phoneNumber: '',
+            ),
         'callLandingPage': (context) => LandingPage(),
         'createchannel': (context) => CreateChannel(),
         'joinchannel': (context) => JoinChannelScreen(),
-        'specific':(context) => SpecificChannelScreen(),
-        'setting':(context) => SettingsPage(),
+        'specific': (context) => SpecificChannelScreen(),
+        'setting': (context) => SettingsPage(),
       },
     );
   }

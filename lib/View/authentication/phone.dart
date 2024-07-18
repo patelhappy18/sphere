@@ -157,6 +157,8 @@ class _Phone extends State<Phone> {
                             MaterialPageRoute(
                               builder: (context) => OTP(
                                 verificationId: verificationId,
+                                phoneNumber:
+                                    phoneNumber, // Pass the phone number to OTP screen
                               ),
                             ),
                           );

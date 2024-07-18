@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -44,8 +45,9 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.logout),
             title: Text('Log Out'),
             onTap: () async {
-              //await FirebaseAuth.instance.signOut();
-              Navigator.pushNamedAndRemoveUntil(context, '/phone', (route) => false);
+              await FirebaseAuth.instance.signOut();
+              Navigator.pushNamedAndRemoveUntil(
+                  context, 'phone', (route) => false);
             },
           ),
         ],

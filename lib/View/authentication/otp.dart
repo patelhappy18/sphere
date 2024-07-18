@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:myvoiceapp/View/authentication/fullname.dart';
+import 'package:myvoiceapp/View/authentication/welcome.dart';
 import 'package:myvoiceapp/View/dashboard/dashboard.dart';
 // import 'package:pinput/pinput.dart';
 import 'package:myvoiceapp/res/Assets/image_assets.dart';
@@ -8,8 +11,9 @@ import 'package:pinput/pinput.dart';
 
 class OTP extends StatefulWidget {
   final String verificationId;
+  final String phoneNumber;
 
-  OTP({super.key, required this.verificationId});
+  OTP({super.key, required this.verificationId, required this.phoneNumber});
 
   @override
   State<OTP> createState() {
@@ -119,10 +123,41 @@ class _OTPState extends State<OTP> {
 
                       // Sign the user in (or link) with the credential
                       await auth.signInWithCredential(credential);
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, 'welcomeScreen', (route) => false);
+
+                      // Check if the user's profile already exists in Firestore
+                      QuerySnapshot<Map<String, dynamic>> snapshot =
+                          await FirebaseFirestore.instance
+                              .collection('users')
+                              .where('phoneNumber',
+                                  isEqualTo: widget.phoneNumber)
+                              .get();
+
+                      if (snapshot.docs.isNotEmpty) {
+                        // User's profile already exists, navigate to dashboard
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, 'dashboard', (route) => false);
+                      } else {
+                        // User's profile does not exist, navigate to FullNameScreen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WelcomeScreen(
+                              phoneNumber: widget.phoneNumber,
+                            ),
+                          ),
+                        );
+                      }
                     } catch (e) {
-                      print("Wrong OTP");
+                      print("Failed to verify OTP: $e");
+                      Fluttertoast.showToast(
+                        msg: "Wrong OTP. Please try again.",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.TOP,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0,
+                      );
                     }
                   },
                   child: const Text(
